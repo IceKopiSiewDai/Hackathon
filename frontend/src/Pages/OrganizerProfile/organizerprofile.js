@@ -9,10 +9,17 @@ const OrganizerProfile = () => {
     navigate("/AddEvent");
   };
 
+  const handleViewEvent = () => {
+    navigate("/ViewEvent");
+  };
+
   return (
     <div className="organizer-profile">
       <button className="add-event-button" onClick={handleAddEventClick}>
         Add Event
+      </button>
+      <button className="add-event-button" onClick={handleViewEvent}>
+        View Past Events
       </button>
     </div>
   );
