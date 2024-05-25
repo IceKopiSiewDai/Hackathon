@@ -5,6 +5,7 @@ const asyncHandler = require("express-async-handler");
 const cron = require("node-cron");
 
 const User = require('../models/userModel');
+const Event = require('../models/eventModel');
 
 // Create a new user
 exports.createUser = async (req, res) => {
@@ -17,23 +18,6 @@ exports.createUser = async (req, res) => {
     res.status(400).send(error);
   }
 };
-
-exports.registerEvent = asyncHandler(async (req, res) => {
-  const userId = req.user.id; // Assuming you have authentication middleware to extract the user ID from the request
-
-  const eventId = req.params.id; // Event ID passed in the request params
-
-  // Check if the event exists
-  const event = await Event.findById(eventId);
-  if (!event) {
-    return res.status(404).json({ message: 'Event not found' });
-  }
-
-  // Update the user's registeredEvent array with the event ID
-  await User.findByIdAndUpdate(userId, { $push: { registeredEvent: eventId } });
-
-  res.status(200).json({ message: 'Event registered successfully' });
-});
 
 exports.getUsers = async (req, res) => {
     try {
@@ -105,3 +89,20 @@ exports.deleteUser = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+
+exports.registerEvent = asyncHandler(async (req, res) => {
+  const { userId } = req.body; // Extract userId from request body
+  const eventId = req.params.id; // Event ID passed in the request params
+
+  // Check if the event exists
+  const event = await Event.findById(eventId);
+  if (!event) {
+    return res.status(404).json({ message: 'Event not found' });
+  }
+
+  // Update the user's registeredEvent array with the event ID
+  await User.findByIdAndUpdate(userId, { $push: { registeredEvent: eventId } });
+
+  res.status(200).json({ message: 'Event registered successfully' });
+});

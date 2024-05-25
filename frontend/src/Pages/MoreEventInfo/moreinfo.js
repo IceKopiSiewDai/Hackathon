@@ -32,31 +32,19 @@ const MoreInfo = () => {
     fetchEventDetails();
   }, [id]);
 
-  // Function to handle registering for the event
-//   const handleRegister = async () => {
-//     try {
-//       const response = await fetch(`http://localhost:5000/user/registerEvent/${id}`, {
-//         method: 'POST',
-//         // Add any necessary headers and authentication tokens
-//       });
-//       if (!response.ok) {
-//         throw new Error('Failed to register for the event');
-//       }
-//       setIsRegistered(true); // Update state to indicate successful registration
-//     } catch (err) {
-//       setError(err.message);
-//     }
-//   };
-    const handleRegister = async () => {
+//   Function to handle registering for the event
+const handleRegister = async () => {
     try {
       const token = currentUser.token; // Assuming token is stored in currentUser context
-      
+      const userId = currentUser._id; // Use the correct field for user ID
+
       const response = await fetch(`http://localhost:5000/user/registerEvent/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`, // Include the JWT token in the Authorization header
         },
+        body: JSON.stringify({ userId }), // Pass the userId in the request body
       });
 
       if (!response.ok) {
@@ -68,7 +56,7 @@ const MoreInfo = () => {
       setError(err.message);
     }
   };
-
+  
   if (loading) return <div className="more-info-container">Loading...</div>;
   if (error) return <div className="more-info-container">Error: {error}</div>;
 

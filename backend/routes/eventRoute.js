@@ -11,4 +11,5 @@ router.post("/postEvent", EventController.postEvents);
 router.get("/getEventDetails/:id", EventController.getEventDetails);
 
 router.get("/getPastEvents", EventController.getPastEvents);
+router.post('/register/:id', EventController.registerEvent); 
 module.exports = router;
