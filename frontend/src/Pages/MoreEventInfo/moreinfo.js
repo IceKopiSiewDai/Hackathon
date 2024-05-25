@@ -10,7 +10,7 @@ const MoreInfo = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await fetch(`/event/getEventDetails/${id}`);
+        const response = await fetch(`http://localhost:5000/event/getEventDetails/${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
