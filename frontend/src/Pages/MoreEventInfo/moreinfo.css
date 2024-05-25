@@ -1,0 +1,58 @@
+/* moreinfo.css */
+
+/* Container styles */
+.more-info-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Title styles */
+  .more-info-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Image styles */
+  .more-info-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Description styles */
+  .more-info-container p {
+    margin-bottom: 10px;
+  }
+  
+  /* Link styles */
+  .more-info-container a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .more-info-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Feedback styles */
+  .more-info-container ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .more-info-container li {
+    margin-bottom: 10px;
+  }
+  
+  .register-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px; /* Adjust the margin as needed */
+    width: 150px; /* Set the desired width */
+  }
+  
