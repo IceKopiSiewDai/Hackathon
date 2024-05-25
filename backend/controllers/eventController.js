@@ -13,19 +13,20 @@ exports.getEventDetails = async (req, res) => {
     const eventId = req.params.id;
 
     // Find the event by ID
-    const event = await Event.findById(eventId).populate('submitted_by').populate('feedback.name');
+    const event = await Event.findById(eventId)
+      .populate("submitted_by")
+      .populate("feedback.name");
 
     if (!event) {
-      return res.status(404).json({ message: 'Event not found' });
+      return res.status(404).json({ message: "Event not found" });
     }
-  
+
     // Send the event details as the response
     res.json(event);
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
 
 exports.getEventId = asyncHandler(async (req, res) => {
   const eventId = req.params.eventId;
@@ -56,5 +57,21 @@ exports.postEvents = asyncHandler(async (req, res) => {
     res.status(200).json(event);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+exports.getPastEvents = asyncHandler(async (req, res) => {
+  try {
+    // Fetch events with date less than current date
+    const currentDate = new Date();
+    const events = await Event.find({ date: { $lt: currentDate } });
+    // Divide events into groups of 3
+    const eventGroups = [];
+    for (let i = 0; i < events.length; i += 3) {
+      eventGroups.push(events.slice(i, i + 3));
+    }
+    res.status(200).json(eventGroups);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 });
