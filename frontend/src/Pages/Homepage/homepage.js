@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 import { Context } from '../store/context';
 import './homepage.css';
 import NavBar from '../Navbar/navbar';
@@ -125,6 +126,9 @@ const Homepage = () => {
                   <p><strong>Time:</strong> {event.time}</p>
                   <p><strong>Location:</strong> <a href={event.location} target="_blank" rel="noopener noreferrer">View on Map</a></p>
                 </div>
+                <Link to={`/moreinfo/${event._id}`} key={event._id}>
+                  <button>View Details</button>
+                </Link>
                 </div>
               ))
             ) : (

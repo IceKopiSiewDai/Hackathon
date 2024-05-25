@@ -21,6 +21,8 @@ const MoreInfo = () => {
         const data = await response.json();
         setEvent(data);
         setLoading(false);
+        console.log("Below is the current user")
+        console.log(currentUser);
       } catch (err) {
         setError(err.message);
         setLoading(false);
