@@ -1,0 +1,77 @@
+.slick-prev,
+.slick-next {
+    display: block !important;
+    background: black !important;
+    border-radius: 50% !important;
+    width: 30px !important;       /* Specifies width of the arrow */
+    height: 30px !important;      /* Specifies height of the arrow */
+    justify-content: center !important;
+    align-items: center !important;
+    color: white !important;
+    font-size: 30px !important;   /* Match font size for pseudo-elements */
+    font-family: 'slick' !important; /* Apply font family */
+    line-height: 1 !important; /* Apply line height */
+    opacity: 0.75 !important; /* Apply opacity */
+    -webkit-font-smoothing: antialiased !important; /* Apply font smoothing */
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick' !important;
+    font-size: 30px !important; /* Match font size with .slick-prev and .slick-next */
+    line-height: 1 !important;
+    opacity: 0.75 !important;
+    color: rgba(255, 255, 255, 0.75) !important; /* White color with transparency */
+    -webkit-font-smoothing: antialiased !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Recommended section container */
+.recommendedSection {
+    max-width: 1500px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+/* Event details card styling */
+.eventDetails {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+    text-align: center;
+    margin: 10px;
+    width: 100%;
+    max-width: 320px; /* Adjust as needed */
+    overflow: hidden;
+  }
+  
+/* Event image container */
+#imageContainer {
+    margin-bottom: 10px;
+    width: 100%; /* Ensures the container takes up full width */
+    height: 200px; /* Fixed height for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+    background-color: #f0f0f0; /* Optional: Add a background color */
+  }
+  
+  
+  /* Event image styling */
+  .eventImage {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* Adjust as needed */
+    max-height: 200px; /* Adjust as needed */
+    object-fit: cover;
+  }
+  
+  /* Text container styling */
+  #textContainer {
+    padding: 10px; /* Adjust padding as needed */
+    text-align: left; /* Adjust text alignment as needed */
+  }
+  
