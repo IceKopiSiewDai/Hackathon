@@ -8,6 +8,24 @@ exports.getEvents = asyncHandler(async (req, res) => {
   res.status(200).json(events);
 });
 
+exports.getEventDetails = async (req, res) => {
+  try {
+    const eventId = req.params.id;
+
+    // Find the event by ID
+    const event = await Event.findById(eventId).populate('submitted_by').populate('feedback.name');
+
+    if (!event) {
+      return res.status(404).json({ message: 'Event not found' });
+    }
+
+    // Send the event details as the response
+    res.json(event);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 exports.getEventId = asyncHandler(async (req, res) => {
   const eventId = req.params.eventId;
   const event = await Event.find({ _id: eventId });

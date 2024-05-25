@@ -6,6 +6,7 @@ import Login from "./Pages/Login/login";
 import UserProfile from "./Pages/Profile/profile";
 import Signup from "./Pages/SignUp/signup";
 import AddEvent from "./Pages/AddEvent/addevent";
+import MoreInfo from "./Pages/MoreEventInfo/moreinfo";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/AddEvent" element={<AddEvent />} />
+          <Route path="/MoreInfo/:id" element={<MoreInfo/>}/>
         </Routes>
       </Router>
     </Context.Provider>
