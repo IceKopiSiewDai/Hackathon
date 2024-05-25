@@ -7,18 +7,22 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Spread events evenly */
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .event-card {
   flex: 0 0 calc(33.33% - 20px); /* Each event card occupies 1/3 of the container width */
-  margin-bottom: 20px; /* Add space between event cards */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .empty-event-card {
   flex: 0 0 calc(33.33% - 20px); /* Each empty space occupies 1/3 of the container width */
-  margin-bottom: 20px; /* Add space between empty spaces */
+  margin-bottom: 20px;
 }
 
 .event-heading {
